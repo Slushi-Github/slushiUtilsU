@@ -1,5 +1,5 @@
 # SlushiUtilsU
-![mainImage](https://github.com/Slushi-Github/slushiUtilsU/blob/main/docs/readme/MainImage.png)
+![mainImage](https://github.com/Slushi-Github/slushiUtilsU/blob/main/readme/MainImage.png)
 
 A library that helps to facilitate the use of certain Wii U libraries.
 This library includes the following:
