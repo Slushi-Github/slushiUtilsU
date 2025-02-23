@@ -1,0 +1,11 @@
+{
+    "name": "hxwut",
+    "url" : "https://github.com/Slushi-Github/slushiUtilsU",
+    "license": "Apache",
+    "tags": ["native"],
+    "description": "A library that helps to facilitate the use of certain Wii U libraries.",
+    "version": "1.0.0",	
+    "releasenote": "",
+    "contributors": ["Slushi"],
+    "classPath": "wiiu"
+}
