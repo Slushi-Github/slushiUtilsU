@@ -5,9 +5,9 @@ import haxe.PosInfos;
 
 @:cppInclude("coreinit/debug.h") 
 @:include("coreinit/debug.h")
-// @:include("slushiUtilsU_DebugSystem.h")
+	@:include("wiiu_DebugSystem.h")
 class DebugSystem {
-	// @:include("slushiUtilsU_DebugSystem.h")
+		@:include("wiiu_DebugSystem.h")
 	@:include("haxe_PosInfos.h")
 	@:cppInclude("coreinit/debug.h")
 	@:include("coreinit/debug.h")
@@ -16,7 +16,7 @@ class DebugSystem {
 		Debug.OSReportInfo(getAndPrepareString(msg, "info", pos));
 	}
 
-	// @:include("slushiUtilsU_DebugSystem.h")
+	@:include("wiiu_DebugSystem.h")
 	@:cppInclude("coreinit/debug.h")
 	@:include("coreinit/debug.h")
 	// @:topLevel
@@ -24,7 +24,7 @@ class DebugSystem {
 		Debug.OSReportWarn(getAndPrepareString(msg, "warn"));
 	}
 
-	// @:include("slushiUtilsU_DebugSystem.h")
+		@:include("wiiu_DebugSystem.h")
 	@:cppInclude("coreinit/debug.h")
 	@:include("coreinit/debug.h")
 	// @:topLevel
@@ -34,7 +34,7 @@ class DebugSystem {
 
 	//////////////////////////////////////////
 
-	// @:include("slushiUtilsU_DebugSystem.h")
+		@:include("wiiu_DebugSystem.h")
 	@:cppInclude("coreinit/debug.h")
 	@:include("coreinit/debug.h")
 	// @:topLevel
