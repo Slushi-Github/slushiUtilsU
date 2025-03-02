@@ -1,45 +1,34 @@
 package wiiu;
 
 import wut.coreinit.Debug;
-import haxe.PosInfos;
+import haxe.PosInfos; 
 
-@:cppInclude("coreinit/debug.h") 
-@:include("coreinit/debug.h")
-	@:include("wiiu_DebugSystem.h")
+@:include("wiiu_DebugSystem.h")
 class DebugSystem {
-		@:include("wiiu_DebugSystem.h")
+	@:include("wiiu_DebugSystem.h")
 	@:include("haxe_PosInfos.h")
-	@:cppInclude("coreinit/debug.h")
-	@:include("coreinit/debug.h")
-	// @:topLevel
 	public static function info(msg:String, ?pos:PosInfos = null) {
 		Debug.OSReportInfo(getAndPrepareString(msg, "info", pos));
 	}
 
 	@:include("wiiu_DebugSystem.h")
-	@:cppInclude("coreinit/debug.h")
-	@:include("coreinit/debug.h")
-	// @:topLevel
-	public static function warn(msg:String) {
-		Debug.OSReportWarn(getAndPrepareString(msg, "warn"));
+	@:include("haxe_PosInfos.h")
+	public static function warn(msg:String, ?pos:PosInfos = null) {
+		Debug.OSReportWarn(getAndPrepareString(msg, "warn", pos));
 	}
 
-		@:include("wiiu_DebugSystem.h")
-	@:cppInclude("coreinit/debug.h")
-	@:include("coreinit/debug.h")
-	// @:topLevel
-	public static function error(msg:String) {
-		Debug.OSReportInfo(getAndPrepareString(msg, "error"));
+	@:include("wiiu_DebugSystem.h")
+	@:include("haxe_PosInfos.h")
+	public static function error(msg:String, ?pos:PosInfos = null) {
+		Debug.OSReportInfo(getAndPrepareString(msg, "error", pos));
 	}
 
 	//////////////////////////////////////////
 
-		@:include("wiiu_DebugSystem.h")
-	@:cppInclude("coreinit/debug.h")
-	@:include("coreinit/debug.h")
-	// @:topLevel
-	public static function criticalStop(msg:String) {
-		Debug.OSFatal(getAndPrepareString(msg, "fatal"));
+	@:include("wiiu_DebugSystem.h")
+	@:include("haxe_PosInfos.h")
+	public static function criticalStop(msg:String, ?pos:PosInfos = null) {
+		Debug.OSFatal(getAndPrepareString(msg, "fatal", pos));
 	}
 
 	//////////////////////////////////////////
@@ -53,7 +42,7 @@ class DebugSystem {
 	}
 
 	private static function getAndPrepareString(s:String, mode:String, ?pos:PosInfos):ConstCharPtr {
-		var strPtr:ConstCharPtr;
+		var strPtr:ConstCharPtr = untyped __cpp__("nullptr");
 
 		var classDataStr:String = getHaxeFilePos(pos);
 		if(classDataStr == "") {
