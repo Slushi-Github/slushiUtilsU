@@ -33,12 +33,12 @@ class DebugSystem {
 
 	//////////////////////////////////////////
 
-	public static function getHaxeFilePos(pos:PosInfos):String {
+	private static function getHaxeFilePos(pos:PosInfos):String {
 		return pos.className + "/" + pos.methodName + ":" + pos.lineNumber;
 	}
 
-	public static function getHaxeFilePosForCrash(pos:PosInfos):String {
-		return pos.fileName + ":\n\t" + pos.className + "/" + pos.methodName + ":" + pos.lineNumber;
+	private static function getHaxeFilePosForCrash(pos:PosInfos):String {
+		return pos.fileName + ":\n\t" + pos.className + "." + pos.methodName + ":" + pos.lineNumber;
 	}
 
 	private static function getAndPrepareString(s:String, mode:String, ?pos:PosInfos):ConstCharPtr {
@@ -51,16 +51,16 @@ class DebugSystem {
 
 		switch (mode) {
 			case "info":
-				strPtr = ConstCharPtr.fromString("[Slushi Debuging - INFO -> " + classDataStr + "] " + s);
+				strPtr = ConstCharPtr.fromString("[Slushi Debugging - INFO -> " + classDataStr + "] " + s);
 			case "warn":
-				strPtr = ConstCharPtr.fromString("[Slushi Debuging - WARN -> " + classDataStr + "] " + s);
+				strPtr = ConstCharPtr.fromString("[Slushi Debugging - WARN -> " + classDataStr + "] " + s);
 			case "error":
-				strPtr = ConstCharPtr.fromString("[Slushi Debuging - ERROR -> " + classDataStr + "] " + s);
+				strPtr = ConstCharPtr.fromString("[Slushi Debugging - ERROR -> " + classDataStr + "] " + s);
 			case "fatal":
-				strPtr = ConstCharPtr.fromString("[Slushi Debuging - FATAL]" + "\n\nCall stack:\n" + getHaxeFilePosForCrash(pos) + "\n\nError: " + s
-					+ "\n\n\t\t    Please reset the Wii U.");
+				strPtr = ConstCharPtr.fromString("[Slushi Debugging - CRASH]" + "\n\nCall stack:\n" + getHaxeFilePosForCrash(pos) + "\n\nError: " + s
+					+ "\n\n\n\t\t    Please reset the Wii U.");
 			default:
-				strPtr = ConstCharPtr.fromString("[Slushi Debuging - UNKNOWN -> " + classDataStr + "] " + s);
+				strPtr = ConstCharPtr.fromString("[Slushi Debugging - UNKNOWN -> " + classDataStr + "] " + s);
 		}
 
 		return strPtr;
