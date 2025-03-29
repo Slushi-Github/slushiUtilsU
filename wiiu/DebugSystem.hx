@@ -5,18 +5,31 @@ import haxe.PosInfos;
 
 @:include("wiiu_DebugSystem.h")
 class DebugSystem {
+	/**
+	 * Sends a message to the console log with the info level.
+	 * @param msg The message to send to the console log.
+	 */
 	@:include("wiiu_DebugSystem.h")
 	@:include("haxe_PosInfos.h")
 	public static function info(msg:String, ?pos:PosInfos = null) {
 		Debug.OSReportInfo(getAndPrepareString(msg, "info", pos));
 	}
 
+	/**
+	 * Sends a message to the console log with the warn level.
+	 * @param msg The message to send to the console log.
+	 */
 	@:include("wiiu_DebugSystem.h")
 	@:include("haxe_PosInfos.h")
 	public static function warn(msg:String, ?pos:PosInfos = null) {
 		Debug.OSReportWarn(getAndPrepareString(msg, "warn", pos));
 	}
 
+
+	/**
+	 * Sends a message to the console log with the error level.
+	 * @param msg The message to send to the console log.
+	 */
 	@:include("wiiu_DebugSystem.h")
 	@:include("haxe_PosInfos.h")
 	public static function error(msg:String, ?pos:PosInfos = null) {
@@ -25,6 +38,10 @@ class DebugSystem {
 
 	//////////////////////////////////////////
 
+	/**
+	 * Stop the entire console showning a "crash handler" message using OSScreen lib.
+	 * @param msg The message to send to the console log.
+	 */
 	@:include("wiiu_DebugSystem.h")
 	@:include("haxe_PosInfos.h")
 	public static function criticalStop(msg:String, ?pos:PosInfos = null) {
